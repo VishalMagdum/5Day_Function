@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Task</title>
+</head>
+<body>
+    <script>
+
+     var arr = [1,2,3,4,5,6,7,8,9,10]
+     
+
+
+  // *****************  a)  Print odd numbers in an array  ***********
+    console.log(`Main Array: ${arr}`)
+    // var oddArr = [];
+
+ //  1.Anonymous Function
+      
+        var oddNo = function(Element){
+            var oddArr1 = [];
+            for(i=0;i<Element.length;i++){
+                if(Element[i]%2!=0){
+                    oddArr1.push(Element[i])
+                }
+            }
+            console.log(`Odd Array : ${oddArr1}`)
+        }
+      
+        oddNo(arr);
+ 
+
+// 2.IIFE Function
+    (function (Element){
+     var oddArr1=[];
+     for(i=0;i<Element.length;i++){
+      
+          if(Element[i]%2!=0){
+
+              oddArr1.push(Element[i])
+        }
+     }
+  console.log(`Array of odd No.: ${oddArr1}`)
+  })(arr);
+
+
+//3.arrow Function
+    var ArrowOdd_no =  (Element)=>{
+     var oddArr1=[];
+     for(i=0;i<Element.length;i++){
+      
+          if(Element[i]%2!=0){
+
+              oddArr1.push(Element[i])
+        }
+     }
+  console.log(`Array of odd No.: ${oddArr1}`)
+  }
+
+  ArrowOdd_no(arr)
+
+//  **************** b)Convert all the strings to title caps in a string array **********************
+  var str = 'I am vIshaL, I Am fuLlstacK devElOper.'
+ // 1. Anonymous Function
+      
+      var titleCase = function(o_str){
+           var lowerCasestr = o_str.toLowerCase();
+           var wordstr = lowerCasestr.split(" ");
+           for(i=0;i<wordstr.length;i++){
+            wordstr[i] = wordstr[i][0].toUpperCase() + wordstr[i].slice(1);
+           }
+           var upperstr = wordstr.join(" ")
+           console.log(upperstr)
+      }
+      titleCase(str);
+
+// 2. IIFE Function 
+    (function(o_str){
+           var lowerCasestr = o_str.toLowerCase();
+           var wordstr = lowerCasestr.split(" ");
+           for(i=0;i<wordstr.length;i++){
+            wordstr[i] = wordstr[i][0].toUpperCase() + wordstr[i].slice(1);
+           }
+           var upperstr = wordstr.join(" ")
+           
+           console.log(upperstr)
+        } 
+      )(str)
+
+// 3. Arrow function
+    var arrowTitleCase = (o_str)=>{
+        var lowerCase = o_str.toLowerCase();
+        var word = lowerCase.split(" ");
+        for(i=0;i<word.length;i++){
+            word[i] = word[i][0].toUpperCase() + word[i].slice(1)
+        }
+        var upper = word.join(" ")
+        console.log(upper)
+    }
+    arrowTitleCase(str)
+
+
+
+//************************** c)Sum of all numbers in an array        *****************************
+  console.log(`Our Array :-${arr}`);
+// 1. anonymaous Function
+   var arrTotal = function(arrayElement){
+    var sum = 0;
+    for(i=0;i<arrayElement.length;i++){
+        sum += arrayElement[i];
+    }
+    console.log(`Array Total : ${sum}`);
+   }
+   arrTotal(arr);
+   
+// 2. IIfE function
+
+   (function(arrayElement){
+          var sum = 0;
+          for(i=0;i<arrayElement.length;i++){
+            sum += arrayElement[i];
+          }
+          console.log(`Total Sum = ${sum}`)
+   })(arr);
+
+// 3. Arrow Function
+  var totalArrSum = (arrayElement)=>{
+    var sum = 0;
+    for(i=0;i<arrayElement.length;i++){
+            sum += arrayElement[i];
+          }
+          console.log(`Total Sum = ${sum}`)
+    
+  }
+  totalArrSum(arr);
+
+
+// ****************************  d)Return all the prime numbers in an array  ********************************
+
+        console.log(`Main Array: ${arr}`);
+      
+  // 1. Anonymous Function
+      var primeNo = function(array){
+           var primeNo_array = [];
+           var prime_check = function(number){
+                 if(number<2) return false;
+
+                 for(var i=2;i<number;i++){
+                  if(number%i==0){
+                    return false; 
+                  }else{}
+                 }
+
+              return true;   
+           }
+           array.forEach(function(element){
+                var value = prime_check(element);
+                if(value){
+                  primeNo_array.push(element)
+                }
+           })
+           console.log(primeNo_array)
+      };
+      primeNo(arr);
+        
+
+
+  // 2. IIFE Function
+  (
+    function(array){
+      var primeNo_array = [];
+           var prime_check = function(number){
+                 if(number<2) return false;
+
+                 for(var i=2;i<number;i++){
+                  if(number%i==0){
+                    return false; 
+                  }else{}
+                 }
+
+              return true;   
+           }
+           array.forEach(function(element){
+            const value = prime_check(element);
+            if(value){
+              primeNo_array.push(element);
+            }
+
+           })
+           console.log(primeNo_array)
+    }
+    
+  )(arr);
+// 3. Arrow Function
+    
+    var sortprimeNo = (array)=>{
+      var sorted_prime=[];
+       var check_prime = number=>{
+        if(number<2)return false;
+        for(var i=2;i<number;i++){
+          if(number%i==0){
+            return false;
+          }
+        }
+        return true;
+       }
+       array.forEach((element)=>{
+        const value = check_prime(element)
+        if(value){
+            sorted_prime.push(element)
+        }
+       })
+       console.log(sorted_prime)
+    }
+    sortprimeNo(arr);
+
+
+
+ 
+//************************* e)Return all the palindromes in an array *************************************
+     
+      var main_array = [123,121,"vishal","rotor","magdum","madam",111];
+
+// 1. Anonymous Function  
+var  palindrome = function(array){
+    var pali_arr = [];
+    array.forEach(element => {
+       if(typeof(element)==typeof(1)){
+          var rem, temp, final = 0;
+		  temp = element;
+          while(element>0){
+            rem = element%10;
+			element = parseInt(element/10);
+			final = final*10+rem;
+            
+           }if(temp==final){
+            pali_arr.push(final);
+           }}
+        else{
+            if(element==element.split("").reverse().join("")){
+                pali_arr.push(element);
+            }
+        }
+    } 
+    );
+    console.log(`array of palindrom:- ${pali_arr}`)
+};
+palindrome(main_array);
+
+// 2)IIFE Function
+(
+            function(array){
+                var pali_arr = [];
+                array.forEach(element => {
+                   if(typeof(element)==typeof(1)){
+                      var rem, temp, final = 0;
+                      temp = element;
+                      while(element>0){
+                        rem = element%10;
+                        element = parseInt(element/10);
+                        final = final*10+rem;
+                        
+                       }if(temp==final){
+                        pali_arr.push(final);
+                       }}
+                    else{
+                        if(element==element.split("").reverse().join("")){
+                            pali_arr.push(element);
+                        }
+                    }
+                } 
+                );
+                console.log(`array of palindrom:- ${pali_arr}`)
+            }
+        )(main_array);
+
+
+
+// 3) Arrow Function 
+var Arrow_pali = (array)=>{
+    var pali_arr = [];
+    array.forEach(element => {
+       if(typeof(element)==typeof(1)){
+          var rem, temp, final = 0;
+          temp = element;
+          while(element>0){
+            rem = element%10;
+            element = parseInt(element/10);
+            final = final*10+rem;
+            
+           }if(temp==final){
+            pali_arr.push(final);
+           }}
+        else{
+            if(element==element.split("").reverse().join("")){
+                pali_arr.push(element);
+            }
+        }
+    } 
+    );
+    console.log(`array of palindrom:- ${pali_arr}`)
+};
+Arrow_pali(main_array);
+
+
+
+
+
+//**************************** f)Return median of two sorted arrays of the same size.*********************************
+
+  var arr1 = [11,13,5,7,9,1,3,15,17,19];
+  var arr2 = [12,4,6,8,10,2,14,16,18,20];
+   
+// 1) Anonymous Function 
+
+      var median = function(arr_1,arr_2){
+          var  merge = [];
+          if(arr_1.length==arr_2.length){
+          for(var i=0;i<arr_1.length;i++){
+              merge.push(arr_1[i]);
+              merge.push(arr_2[i]);
+    }
+    
+  }else{
+    console.log("Median Array Is Not Possible for arrays of unequal size")
+  }
+      var sort_merge = merge.sort((a,b)=>a-b)
+      var median_No = (sort_merge[arr_1.length]+sort_merge[arr.length+1])/2;
+      console.log(median_No)
+ }
+ median(arr1,arr2);
+
+ // 2) IIFE Function
+     (
+      function(arr_1,arr_2){
+            var  merge = [];
+            if(arr_1.length==arr_2.length){
+               for(var i=0;i<arr_1.length;i++){
+                   merge.push(arr_1[i]);
+                   merge.push(arr_2[i]);
+                 }
+    
+            }else{
+                   console.log("Median Array Is Not Possible for arrays of unequal size")
+                 }
+        var sort_merge = merge.sort((a,b)=>a-b)
+        var median_No = (sort_merge[arr_1.length]+sort_merge[arr.length+1])/2;
+        console.log(median_No)
+      }
+     )(arr1,arr2);
+
+
+// 3) Arrow Function
+     
+    var median_no = (arr_1,arr_2)=>{
+
+      var  merge = [];
+            if(arr_1.length==arr_2.length){
+               for(var i=0;i<arr_1.length;i++){
+                   merge.push(arr_1[i]);
+                   merge.push(arr_2[i]);
+                 }
+    
+            }else{
+                   console.log("Median Array Is Not Possible for arrays of unequal size")
+                 }
+        var sort_merge = merge.sort((a,b)=>a-b)
+        var median_No = (sort_merge[arr_1.length]+sort_merge[arr.length+1])/2;
+        console.log(median_No)
+    };
+    median_no(arr1,arr2);
+
+
+// ***************************g)Remove duplicates from an array*********************
+        var allelement = [1,2,"vishal","magdum",2,"magdum",7,"5592","5592"]
+        console.log(allelement);
+    // 1)Anonymus function 
+     var unique = function(array){
+        var unique_arr = [...new Set(array)];
+        console.log(unique_arr)
+     };
+     unique(allelement);
+    
+     // 2) IIFE Function
+       ( function(array){
+        var unique_arr = [...new Set(array)];
+        console.log(unique_arr)
+     }
+     )(allelement);
+
+     // 3) Arrow Function
+      var uniqueArr = (array)=>{
+        var unique_arr = [...new Set(array)];
+        console.log(unique_arr)
+     };
+       uniqueArr(allelement);
+
+
+
+// ************************ h)Rotate an array by k times ***************************
+     console.log(`main array ${arr}`);
+//1) Anonymus Function
+     
+     
+     var reverse = function(Arr, K){
+                   K = K % Arr.length;
+                  if (Arr.length < 2 || K === 0) {
+                   return Arr;
+                }
+
+               var part = Arr.splice(Arr.length - K);
+               console.log(part.concat(Arr));
+      };
+      reverse(arr,3);
+
+     
+// 2) IIFE Function
+    var Arr = [1,2,3,4,5,6,7,8,9,10];
+    (function(array, K){
+                   K = K % array.length;
+                  if (array.length < 2 || K === 0) {
+                   return array;
+                }
+
+               var part = array.splice(array.length - K);
+               console.log(part.concat(array));
+      })(Arr,3);
+      
+// 3) Arrow Function
+    var Arr2 = [1,2,3,4,5,6,7,8,9,10];
+    var rotate = (array,k)=>{
+                  k = k % array.length;
+                  if (array.length < 2 || k === 0) {
+                   return array;
+                }
+
+               var part = array.splice(array.length - k);
+               console.log(part.concat(array));
+    };
+    rotate(Arr2,3);
+</script>
+</body>
+</html>
